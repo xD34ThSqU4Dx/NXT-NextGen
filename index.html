@@ -1,273 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
+
 <head>
 
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>[NXT] NextGen</title>
 
-<style>
-
-html,body{
-    margin:0;
-    width:100%;
-    height:100%;
-    background:#000;
-    overflow:hidden;
-    font-family:monospace;
-    color:#b000ff;
-}
-
-
-/* Matrix Hintergrund */
-
-#matrix{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:0;
-}
-
-
-/* Start Bildschirm */
-
-#start{
-
-    position:fixed;
-    top:0;
-    left:0;
-
-    width:100%;
-    height:100%;
-
-    background:#000;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-
-    z-index:999;
-
-    font-size:22px;
-
-    text-shadow:
-    0 0 20px #b000ff;
-
-}
-
-
-.cursor{
-
-    display:inline-block;
-
-    width:12px;
-    height:22px;
-
-    background:#b000ff;
-
-    animation:blink .7s infinite;
-
-}
-
-
-@keyframes blink{
-
-    50%{
-        opacity:0;
-    }
-
-}
-
-
-/* Hauptbox */
-
-#main{
-
-    position:relative;
-
-    z-index:2;
-
-    width:80%;
-
-    margin:80px auto;
-
-    padding:20px;
-
-    border:2px solid #b000ff;
-
-    background:rgba(0,0,0,.85);
-
-    box-shadow:
-    0 0 20px #b000ff;
-
-}
-
-
-
-.status{
-
-    display:flex;
-
-    gap:10px;
-
-}
-
-
-
-.card{
-
-    flex:1;
-
-    border:1px solid #b000ff;
-
-    padding:10px;
-
-    font-size:12px;
-
-}
-
-
-
-#terminal{
-
-    height:130px;
-
-    margin-top:20px;
-
-    text-align:left;
-
-    overflow:hidden;
-
-}
-
-
-
-#progress{
-
-    height:25px;
-
-    border:2px solid #b000ff;
-
-    margin-top:20px;
-
-}
-
-
-
-#bar{
-
-    height:100%;
-
-    width:0%;
-
-    background:#b000ff;
-
-    box-shadow:
-    0 0 20px #b000ff;
-
-}
-
-/* Shutdown */
-
-#shutdown{
-
-    position:fixed;
-
-    inset:0;
-
-    background:#000;
-
-    display:none;
-
-    justify-content:center;
-
-    align-items:center;
-
-    flex-direction:column;
-
-    z-index:500;
-
-    font-size:22px;
-
-}
-
-
-#shutdown div{
-
-    margin:10px;
-
-}
-
-
-
-
-/* Fade Effekt */
-
-#fade{
-
-    position:fixed;
-
-    inset:0;
-
-    background:#000;
-
-    opacity:0;
-
-    z-index:600;
-
-    transition:1s;
-
-}
-
-
-
-#fade.active{
-
-    opacity:1;
-
-}
-
-
-
-
-
-/* Video */
-
-#videoBox{
-
-    position:fixed;
-
-    inset:0;
-
-    background:#000;
-
-    display:none;
-
-    justify-content:center;
-
-    align-items:center;
-
-    z-index:700;
-
-}
-
-
-
-#video{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:contain;
-
-}
-
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -275,26 +16,22 @@ html,body{
 <body>
 
 
+<!-- Matrix Hintergrund -->
+
 <canvas id="matrix"></canvas>
 
 
 
 
-<div id="start">
+<!-- Intro -->
 
-[NXT] CORE INITIALIZING
+<div id="intro">
 
-<br>
+    <video id="introVideo" autoplay muted playsinline preload="auto">
 
-<span class="cursor"></span>
+        <source src="./media/intro.mp4" type="video/mp4">
 
-<br>
-
-<span style="font-size:14px">
-
-TOUCH TO START
-
-</span>
+    </video>
 
 </div>
 
@@ -302,76 +39,14 @@ TOUCH TO START
 
 
 
-<div id="fade"></div>
+<!-- Bootscreen -->
 
-
-
-
-
-<div id="shutdown">
-
-
-<div>
-
-[NXT] SYSTEM OVERRIDE
-
-</div>
-
-
-<div>
-
-CONNECTION LOST...
-
-</div>
-
-
-<div>
-
-TRANSFERRING SIGNAL...
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div id="videoBox">
-
-
-<video id="video" playsinline preload="auto">
-
-
-<source src="./Rickrolled.mp4" type="video/mp4">
-
-
-</video>
-
-
-</div>
-
-
-
-
-
-
-
+<div id="boot" style="display:none;">
 
 <div id="main">
 
 
-<h1>
-
-[NXT] NextGen
-
-</h1>
-
-
-
+<h1>[NXT] NextGen</h1>
 
 
 
@@ -380,27 +55,25 @@ TRANSFERRING SIGNAL...
 
 <div class="card">
 
-CPU:
+CPU<br>
 
 <span id="cpu">0</span>%
 
 </div>
 
 
-
 <div class="card">
 
-RAM:
+RAM<br>
 
 <span id="ram">0</span>%
 
 </div>
 
 
-
 <div class="card">
 
-SIGNAL:
+SIGNAL<br>
 
 <span id="signal">0</span>%
 
@@ -412,13 +85,7 @@ SIGNAL:
 
 
 
-
-
 <div id="terminal"></div>
-
-
-
-
 
 
 <div id="progress">
@@ -429,448 +96,282 @@ SIGNAL:
 
 
 
+</div>
+
+</div>
+
+
+
+
+
+
+
+<!-- Sprache -->
+
+<div id="language" style="display:none;">
+
+
+<h2>
+
+🌐 SELECT LANGUAGE
+
+</h2>
+
+
+<button onclick="selectLanguage('de')">
+🇩🇪 Deutsch
+</button>
+
+
+<button onclick="selectLanguage('en')">
+🇬🇧 English
+</button>
+
+
+<button onclick="selectLanguage('ru')">
+🇷🇺 Русский
+</button>
+
+
+<button onclick="selectLanguage('fr')">
+🇫🇷 Français
+</button>
+
+
+<button onclick="selectLanguage('es')">
+🇪🇸 Español
+</button>
 
 
 </div>
 
-<script>
 
-let started = false;
 
-let video = document.getElementById("video");
 
 
 
-// Start per Klick / Touch
 
-function startClick(){
+<!-- Regeln -->
 
+<div id="rules" style="display:none;">
 
-    if(started) return;
 
 
-    started = true;
+<img id="nxtGif" src="./media/nxt.gif" alt="NXT">
 
 
-    // Audio-Freigabe für Browser
 
-    video.muted = true;
-    video.play().then(()=>{
+<div id="rulesText">
 
-        video.pause();
-        video.currentTime = 0;
 
-    }).catch(()=>{});
+<h2>
+📜 Willkommen bei [NXT] NextGen
+</h2>
 
 
+<p>
+Bevor du Zugriff auf den Server erhältst,
+lies dir bitte unsere Regeln sorgfältig durch.
+</p>
 
-    document.getElementById("start").style.display="none";
 
 
-    runSystem();
+<h3>
+⚔️ Unsere Regeln
+</h3>
 
 
-}
 
+<h4>
+🤝 Respekt
+</h4>
 
+<p>
+Behandle alle Mitglieder freundlich und respektvoll.
+</p>
 
-document.getElementById("start").addEventListener("click", startClick);
 
-document.getElementById("start").addEventListener("touchstart", startClick);
 
 
+<h4>
+💬 Kein Drama
+</h4>
 
+<p>
+Diskussionen sind willkommen –
+Beleidigungen, Provokationen oder unnötiger Streit nicht.
+</p>
 
 
 
 
-function runSystem(){
+<h4>
+📢 Kein Spam
+</h4>
 
+<p>
+Keine Werbung, kein Flooding und kein Missbrauch von Erwähnungen.
+</p>
 
-let terminal=document.getElementById("terminal");
 
-let bar=document.getElementById("bar");
 
 
+<h4>
+🎮 Fair Play
+</h4>
 
-let messages=[
+<p>
+Cheats, Hacks oder Exploits sind nicht erlaubt.
+</p>
 
-"> System startet...",
 
-"> Module werden geladen...",
 
-"> Netzwerk wird geprüft...",
 
-"> Sicherheitssystem aktiv...",
+<h4>
+📂 Kanäle nutzen
+</h4>
 
-"> Analyse vorbereitet..."
+<p>
+Bitte nutze die passenden Kanäle und halte den Server übersichtlich.
+</p>
 
-];
 
 
 
-let i=0;
+<h4>
+🛡️ Teamentscheidungen
+</h4>
 
+<p>
+Den Anweisungen des Serverteams ist Folge zu leisten.
+</p>
 
 
-let boot=setInterval(()=>{
 
 
-terminal.innerHTML += messages[i]+"<br>";
+<h4>
+🌟 Hab Spaß!
+</h4>
 
-i++;
+<p>
+Unterstütze deine Gildenkollegen und hilf dabei,
+[NXT] NextGen zu einer starken Community zu machen.
+</p>
 
 
 
-if(i>=messages.length){
+</div>
 
 
-clearInterval(boot);
 
-load();
 
 
-}
+<div class="warning">
 
 
+⚠️ WICHTIG
 
-},600);
+<br><br>
 
+Nachdem du die Regeln gelesen hast,
+gehe bitte auf unserem Discord in den Kanal:
 
+<br><br>
 
+#✅-verifizierung
 
+<br><br>
 
+und bestätige dich dort, um Zugriff auf alle Bereiche
+von [NXT] NextGen zu erhalten.
 
-function load(){
 
+</div>
 
-let p=0;
 
 
 
-let timer=setInterval(()=>{
 
+<button onclick="goDiscord()">
 
-p++;
+Weiter
 
-bar.style.width=p+"%";
+</button>
 
 
 
-if(p>=100){
+</div>
 
 
-clearInterval(timer);
 
 
-terminal.innerHTML += "<br>> Analyse abgeschlossen";
 
 
-setTimeout(scan,1000);
 
+<!-- Discord Loading -->
 
-}
+<div id="discordLoading" style="display:none;">
 
+    <h2>
+        [NXT] CONNECTION
+    </h2>
 
+    <p id="discordText">
+        CONNECTING TO DISCORD...
+    </p>
 
-},40);
+</div>
 
+<!-- Discord Seite -->
 
 
-}
+<div id="discordPage" style="display:none;">
 
 
 
+<img id="discordGif" src="./media/nxt.gif" alt="NXT">
 
 
 
-function scan(){
+<h2>
 
+🎮 Willkommen bei [NXT] NextGen
 
+</h2>
 
-let scanText=[
 
-"> Suche Datenströme...",
 
-"> Prüfe Knotenpunkt 01...",
 
-"> Synchronisiere Module...",
+<p>
 
-"> Abschlussprüfung..."
+Du bist bereit, unserem Discord Server beizutreten.
 
-];
+<br><br>
 
+Klicke auf den Button und werde Teil von [NXT] NextGen.
 
+</p>
 
-let x=0;
 
 
 
-let timer=setInterval(()=>{
+<button onclick="joinDiscord()">
 
+🚀 Discord beitreten
 
-terminal.innerHTML += scanText[x]+"<br>";
+</button>
 
-x++;
 
 
+</div>
 
-if(x>=scanText.length){
 
 
-clearInterval(timer);
 
 
-setTimeout(endSystem,1500);
 
 
-}
-
-
-
-},600);
-
-
-
-}
-
-
-
-
-
-
-
-function endSystem(){
-
-
-
-document.getElementById("main").style.display="none";
-
-
-
-let shutdown=document.getElementById("shutdown");
-
-let fade=document.getElementById("fade");
-
-let videoBox=document.getElementById("videoBox");
-
-
-
-shutdown.style.display="flex";
-
-
-
-setTimeout(()=>{
-
-
-fade.classList.add("active");
-
-
-
-setTimeout(()=>{
-
-
-shutdown.style.display="none";
-
-
-videoBox.style.display="flex";
-
-
-
-video.currentTime=0;
-
-video.muted=false;
-
-
-
-video.play().then(()=>{
-
-
-console.log("Video läuft mit Ton");
-
-
-}).catch(()=>{
-
-
-console.log("Browser blockiert Ton");
-
-
-video.muted=true;
-
-video.play();
-
-
-});
-
-
-
-fade.classList.remove("active");
-
-
-
-},1000);
-
-
-
-},2000);
-
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-// Status Anzeige
-
-
-setInterval(()=>{
-
-
-document.getElementById("cpu").innerHTML =
-Math.floor(Math.random()*40+50);
-
-
-
-document.getElementById("ram").innerHTML =
-Math.floor(Math.random()*50+30);
-
-
-
-document.getElementById("signal").innerHTML =
-Math.floor(Math.random()*10+90);
-
-
-
-},500);
-
-
-
-
-
-
-
-
-// Matrix Effekt
-
-
-let canvas=document.getElementById("matrix");
-
-let ctx=canvas.getContext("2d");
-
-
-
-function resize(){
-
-
-canvas.width=window.innerWidth;
-
-canvas.height=window.innerHeight;
-
-
-}
-
-
-
-resize();
-
-
-window.onresize=resize;
-
-
-
-let chars="0123456789ABCDEF";
-
-let size=18;
-
-
-let columns=Math.floor(canvas.width/size);
-
-
-let drops=[];
-
-
-for(let i=0;i<columns;i++){
-
-drops[i]=0;
-
-}
-
-
-
-
-
-
-function matrix(){
-
-
-ctx.fillStyle="rgba(0,0,0,.12)";
-
-
-ctx.fillRect(
-0,
-0,
-canvas.width,
-canvas.height
-);
-
-
-
-ctx.fillStyle="#b000ff";
-
-ctx.font=size+"px monospace";
-
-
-
-for(let i=0;i<drops.length;i++){
-
-
-
-ctx.fillText(
-
-chars[Math.floor(Math.random()*chars.length)],
-
-i*size,
-
-drops[i]*size
-
-);
-
-
-
-drops[i]++;
-
-
-
-if(drops[i]*size > canvas.height){
-
-
-drops[i]=0;
-
-
-}
-
-
-
-}
-
-
-
-}
-
-
-
-setInterval(matrix,50);
-
-
-
-</script>
+<script src="./script.js"></script>
 
 
 </body>
