@@ -4,30 +4,51 @@
 
 
 // ===============================
-// INTRO VIDEO
+// INTRO SYSTEM FIX
 // ===============================
 
 
 const introVideo = document.getElementById("introVideo");
 
 
+let started = false;
+
+
 function startSystem(){
 
-    const intro = document.getElementById("intro");
+
+    if(started) return;
+
+    started = true;
+
+
+
+    const intro =
+    document.getElementById("intro");
+
 
     if(intro){
+
         intro.style.display="none";
+
     }
 
 
-    const boot = document.getElementById("boot");
+
+    const boot =
+    document.getElementById("boot");
+
 
     if(boot){
+
         boot.style.display="flex";
+
     }
+
 
 
     startBoot();
+
 
 }
 
@@ -37,32 +58,31 @@ function startSystem(){
 if(introVideo){
 
 
-    introVideo.addEventListener("ended", startSystem);
+    introVideo.onended = ()=>{
+
+        startSystem();
+
+    };
 
 
 
-    // Fallback
-
-    introVideo.addEventListener("timeupdate",()=>{
+    introVideo.ontimeupdate = ()=>{
 
 
-        if(introVideo.duration && 
-           introVideo.currentTime >= introVideo.duration - 0.3){
-
+        if(
+            introVideo.duration &&
+            introVideo.currentTime >= introVideo.duration - 0.2
+        ){
 
             startSystem();
-
 
         }
 
 
-    });
-
+    };
 
 
 }
-
-
     // Falls Handy das Video-Ende nicht erkennt
 
     setTimeout(()=>{
