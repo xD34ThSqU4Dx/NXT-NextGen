@@ -11,55 +11,25 @@
 const introVideo = document.getElementById("introVideo");
 
 
-let systemStarted = false;
-
-
-
 function startSystem(){
-
-
-    if(systemStarted) return;
-
-
-    systemStarted = true;
-
-
 
     const intro = document.getElementById("intro");
 
-
     if(intro){
-
-        intro.style.opacity="0";
-
-
-        setTimeout(()=>{
-
-            intro.style.display="none";
-
-        },500);
-
+        intro.style.display="none";
     }
-
-
 
 
     const boot = document.getElementById("boot");
 
-
     if(boot){
-
         boot.style.display="flex";
-
     }
-
 
 
     startBoot();
 
-
 }
-
 
 
 
@@ -67,14 +37,30 @@ function startSystem(){
 if(introVideo){
 
 
-    introVideo.addEventListener("ended",()=>{
+    introVideo.addEventListener("ended", startSystem);
 
 
-        startSystem();
+
+    // Fallback
+
+    introVideo.addEventListener("timeupdate",()=>{
+
+
+        if(introVideo.duration && 
+           introVideo.currentTime >= introVideo.duration - 0.3){
+
+
+            startSystem();
+
+
+        }
 
 
     });
 
+
+
+}
 
 
     // Falls Handy das Video-Ende nicht erkennt
