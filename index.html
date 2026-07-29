@@ -24,7 +24,7 @@
 
 <div id="intro">
 
-    <video id="introVideo" autoplay muted playsinline preload="metadata">
+    <video id="introVideo" autoplay muted playsinline preload="metadata" ontimeupdate="if(this.currentTime >= this.duration-0.2){document.getElementById('intro').style.display='none';document.getElementById('boot').style.display='flex';startBoot();}">
 
         <source src="./media/intro.mp4" type="video/mp4">
 
