@@ -1,5 +1,5 @@
 /* =========================
-   NXT NEXTGEN STYLE
+   NXT NEXTGEN OPTIMIZED STYLE
 ========================= */
 
 
@@ -18,13 +18,14 @@ html,body{
 
     background:#050008;
 
-    color:#fff;
+    color:white;
 
     font-family:monospace;
 
     overflow:hidden;
 
 }
+
 
 
 
@@ -37,12 +38,16 @@ body::before{
     inset:0;
 
     background:
-    radial-gradient(circle at top,#4b0082,transparent 45%),
-    radial-gradient(circle at bottom,#150020,transparent 50%);
+    radial-gradient(circle at top,#3b0066,transparent 45%),
+    radial-gradient(circle at bottom,#100018,transparent 50%);
 
     z-index:-1;
 
 }
+
+
+
+
 
 
 
@@ -63,7 +68,7 @@ body::before{
 
     align-items:center;
 
-    background:#000;
+    background:black;
 
     z-index:999;
 
@@ -73,18 +78,18 @@ body::before{
 
 #intro video{
 
-    width:70%;
+    width:75%;
 
-    max-width:900px;
+    max-width:850px;
 
     max-height:65vh;
 
     object-fit:contain;
 
-    border-radius:20px;
+    border-radius:18px;
 
     box-shadow:
-    0 0 40px #b000ff;
+    0 0 25px #b000ff;
 
 }
 
@@ -92,8 +97,10 @@ body::before{
 
 
 
+
+
 /* =========================
-   BOOTSCREEN
+   BOOT
 ========================= */
 
 
@@ -103,9 +110,9 @@ body::before{
 
     display:flex;
 
-    justify-content:center;
-
     align-items:center;
+
+    justify-content:center;
 
 }
 
@@ -118,21 +125,22 @@ body::before{
 
     max-width:750px;
 
-    padding:30px;
+    padding:25px;
 
     background:rgba(0,0,0,.9);
 
     border:2px solid #b000ff;
 
-    border-radius:20px;
+    border-radius:18px;
 
     box-shadow:
 
-    0 0 30px #b000ff;
-
-    animation:fadeIn .8s;
+    0 0 20px #b000ff;
 
 }
+
+
+
 
 
 
@@ -140,9 +148,7 @@ h1{
 
     text-align:center;
 
-    color:white;
-
-    font-size:38px;
+    font-size:36px;
 
     text-shadow:
 
@@ -152,15 +158,20 @@ h1{
 
 
 
+
+
+
+
 .status{
 
     display:flex;
 
-    gap:15px;
+    gap:12px;
 
-    margin-top:25px;
+    margin-top:20px;
 
 }
+
 
 
 
@@ -168,17 +179,19 @@ h1{
 
     flex:1;
 
-    padding:15px;
+    padding:12px;
 
     text-align:center;
 
     border:1px solid #b000ff;
 
-    border-radius:12px;
+    border-radius:10px;
 
-    background:rgba(176,0,255,.1);
+    background:
 
-}
+    rgba(176,0,255,.08);
+
+       }
 
  
 /* =========================
@@ -188,9 +201,9 @@ h1{
 
 #terminal{
 
-    margin-top:25px;
+    margin-top:20px;
 
-    min-height:130px;
+    min-height:120px;
 
     padding:15px;
 
@@ -202,13 +215,13 @@ h1{
 
     color:#d98cff;
 
-    line-height:1.6;
+    line-height:1.5;
 
-    box-shadow:
-
-    inset 0 0 20px rgba(176,0,255,.3);
+    overflow:hidden;
 
 }
+
+
 
 
 
@@ -223,13 +236,13 @@ h1{
 
     width:100%;
 
-    height:22px;
+    height:20px;
 
-    margin-top:25px;
+    margin-top:20px;
 
     border:2px solid #b000ff;
 
-    border-radius:20px;
+    border-radius:15px;
 
     overflow:hidden;
 
@@ -239,27 +252,25 @@ h1{
 
 
 
+
+
 #bar{
 
     width:0%;
 
     height:100%;
 
-    background:
-
-    linear-gradient(
-    90deg,
-    #7000ff,
-    #e000ff
-    );
+    background:#b000ff;
 
     box-shadow:
 
-    0 0 20px #b000ff;
+    0 0 15px #b000ff;
 
-    transition:.15s;
+    transition:.1s;
 
 }
+
+
 
 
 
@@ -294,15 +305,21 @@ h1{
 
 
 
+
+
 #language h2{
 
-    font-size:32px;
+    font-size:30px;
+
+    margin-bottom:25px;
 
     text-shadow:
 
-    0 0 20px #b000ff;
+    0 0 15px #b000ff;
 
 }
+
+
 
 
 
@@ -312,27 +329,31 @@ button{
 
     width:280px;
 
-    margin:10px;
+    margin:8px;
 
-    padding:15px;
+    padding:14px;
 
     background:#08000d;
 
     color:white;
 
-    border:2px solid #b000ff;
+    border:
+
+    2px solid #b000ff;
 
     border-radius:12px;
 
     font-family:monospace;
 
-    font-size:18px;
+    font-size:17px;
 
     cursor:pointer;
 
-    transition:.3s;
-
 }
+
+
+
+
 
 
 
@@ -340,15 +361,14 @@ button:hover{
 
     background:#b000ff;
 
-    color:#000;
-
-    transform:translateY(-3px);
+    color:black;
 
     box-shadow:
 
-    0 0 25px #b000ff;
+    0 0 20px #b000ff;
 
 }
+
 
 
 
@@ -368,9 +388,11 @@ button:hover{
 
     left:50%;
 
-    transform:translate(-50%,-50%);
 
-    z-index:30;
+    transform:
+
+    translate(-50%,-50%);
+
 
     width:85%;
 
@@ -378,28 +400,43 @@ button:hover{
 
     height:85vh;
 
-    padding:30px;
 
-    background:rgba(0,0,0,.95);
+    padding:25px;
+
+
+    background:
+
+    rgba(0,0,0,.96);
+
 
     border:2px solid #b000ff;
 
-    border-radius:20px;
 
-    box-shadow:
-    0 0 35px #b000ff;
+    border-radius:18px;
+
+
+    z-index:30;
+
 
     overflow-y:auto;
 
-    animation:rulesOpen .5s ease;
+
+    box-shadow:
+
+    0 0 25px #b000ff;
+
 
 }
 
 
 
+
+
+
+
 #rules::-webkit-scrollbar{
 
-    width:10px;
+    width:8px;
 
 }
 
@@ -416,26 +453,29 @@ button:hover{
 
 
 
+
+
+
 #nxtGif{
 
     display:block;
 
-    width:280px;
+    width:220px;
 
-    max-width:80%;
+    max-width:75%;
 
-    margin:0 auto 25px;
+    margin:
+
+    0 auto 20px;
+
 
     border-radius:15px;
 
-    box-shadow:
-
-    0 0 25px #b000ff;
-
 }
 
-
-
+/* =========================
+   REGEL TEXT
+========================= */
 
 
 #rulesText{
@@ -446,25 +486,37 @@ button:hover{
 
 
 
-
 #rulesText h2{
 
     text-align:center;
 
-    font-size:28px;
+    font-size:26px;
 
     text-shadow:
 
-    0 0 15px #b000ff;
+    0 0 12px #b000ff;
 
 }
 
+
+
+#rulesText h3{
+
+    text-align:center;
+
+    margin-top:25px;
+
+    color:white;
+
+}
 
 
 
 #rulesText h4{
 
     color:#d98cff;
+
+    margin-top:22px;
 
     margin-bottom:5px;
 
@@ -474,31 +526,54 @@ button:hover{
 
 #rulesText p{
 
-    line-height:1.6;
+    line-height:1.5;
+
+    color:#ddd;
 
 }
 
 
 
+
+
+
+
+/* =========================
+   WARNUNG / VERIFIZIERUNG
+========================= */
 
 
 .warning{
 
-    margin-top:30px;
+    margin-top:25px;
 
-    padding:20px;
+    padding:18px;
 
-    border:1px solid #b000ff;
+
+    border:
+
+    1px solid #b000ff;
+
 
     border-radius:12px;
 
+
     background:
 
-    rgba(176,0,255,.1);
+    rgba(176,0,255,.08);
+
+
+    line-height:1.5;
 
 }
 
- 
+
+
+
+
+
+
+
 /* =========================
    DISCORD SEITE
 ========================= */
@@ -512,35 +587,48 @@ button:hover{
 
     z-index:40;
 
+
     display:flex;
+
 
     flex-direction:column;
 
+
     justify-content:center;
+
 
     align-items:center;
 
+
     text-align:center;
 
-    padding:30px;
+
+    padding:25px;
+
 
     background:#050008;
 
+
 }
+
+
+
 
 
 
 
 #discordPage h2{
 
-    font-size:32px;
+    font-size:30px;
+
 
     text-shadow:
 
-    0 0 20px #b000ff;
+
+    0 0 15px #b000ff;
+
 
 }
-
 
 
 
@@ -548,11 +636,16 @@ button:hover{
 
     max-width:500px;
 
-    color:#ddd;
 
     line-height:1.6;
 
+
+    color:#ddd;
+
+
 }
+
+
 
 
 
@@ -560,17 +653,16 @@ button:hover{
 
 #discordGif{
 
-    width:300px;
+    width:220px;
 
-    max-width:80%;
 
-    margin-bottom:25px;
+    max-width:70%;
 
-    border-radius:20px;
 
-    box-shadow:
+    margin-bottom:20px;
 
-    0 0 35px #b000ff;
+
+    border-radius:15px;
 
 }
 
@@ -578,11 +670,16 @@ button:hover{
 
 
 
+
+
 #discordPage button{
+
 
     width:300px;
 
-    margin-top:25px;
+
+    margin-top:20px;
+
 
 }
 
@@ -605,49 +702,64 @@ button:hover{
 
     z-index:50;
 
+
     display:flex;
+
 
     flex-direction:column;
 
+
     justify-content:center;
+
 
     align-items:center;
 
-    background:#000;
+
+    background:black;
+
 
     color:white;
 
-    font-size:22px;
+
+    font-size:20px;
+
 
 }
+
 
 
 
 
 #discordLoading::after{
 
+
     content:"";
 
-    width:50px;
 
-    height:50px;
+    width:45px;
 
-    margin-top:25px;
 
-    border:4px solid #333;
+    height:45px;
+
+
+    margin-top:20px;
+
+
+    border:
+
+    4px solid #333;
+
 
     border-top-color:#b000ff;
 
+
     border-radius:50%;
 
-    animation:spin 1s linear infinite;
+
+    animation:spin .8s linear infinite;
+
 
 }
-
-
-
-
-
 
 /* =========================
    ANIMATIONEN
@@ -656,21 +768,20 @@ button:hover{
 
 .glitchFade{
 
-    animation:fadeScale .8s;
+    animation:fadeIn .5s ease;
 
 }
 
 
 
-@keyframes fadeScale{
+@keyframes fadeIn{
+
 
     from{
 
         opacity:0;
 
-        transform:scale(.9);
-
-        filter:blur(10px);
+        transform:scale(.97);
 
     }
 
@@ -681,17 +792,16 @@ button:hover{
 
         transform:scale(1);
 
-        filter:blur(0);
-
     }
+
 
 }
 
 
 
 
-
 @keyframes spin{
+
 
     from{
 
@@ -706,31 +816,9 @@ button:hover{
 
     }
 
-}
-
-
-
-
-@keyframes fadeIn{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(30px);
-
-    }
-
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
 
 }
+
 
 
 
@@ -739,20 +827,22 @@ button:hover{
 
 
 /* =========================
-   HANDY
+   HANDY OPTIMIERUNG
 ========================= */
 
 
 @media(max-width:700px){
 
 
+
     #intro video{
 
         width:95%;
 
-        max-height:50vh;
+        max-height:45vh;
 
     }
+
 
 
 
@@ -760,9 +850,11 @@ button:hover{
 
         width:92%;
 
-        padding:20px;
+        padding:18px;
 
     }
+
+
 
 
 
@@ -774,6 +866,8 @@ button:hover{
 
 
 
+
+
     .status{
 
         flex-direction:column;
@@ -782,15 +876,19 @@ button:hover{
 
 
 
+
+
     #rules{
 
         width:95%;
 
-        height:85vh;
+        height:82vh;
 
-        padding:20px;
+        padding:18px;
 
     }
+
+
 
 
 
@@ -802,14 +900,77 @@ button:hover{
 
 
 
+
+
+    #nxtGif{
+
+        width:180px;
+
+    }
+
+
+
+
+
+    #discordGif{
+
+        width:180px;
+
+    }
+
+
+
+
+
+    #language h2{
+
+        font-size:25px;
+
+    }
+
+
+
+
+
     button{
 
         width:90%;
 
         max-width:320px;
 
+        font-size:16px;
+
     }
 
 
+
 }
-    
+
+
+
+
+
+
+
+/* =========================
+   PERFORMANCE
+========================= */
+
+
+video,
+img{
+
+    max-width:100%;
+
+}
+
+
+
+
+#rules,
+#discordPage,
+#main{
+
+    will-change:auto;
+
+}
