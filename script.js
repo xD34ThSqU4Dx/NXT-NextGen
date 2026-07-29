@@ -1,48 +1,47 @@
-alert("SCRIPT LÄUFT");
+
 // ===============================
 // NXT NEXTGEN SYSTEM
 // ===============================
 
 
 // ===============================
-// INTRO SYSTEM FIX
+// NXT INTRO SYSTEM FIX
 // ===============================
-
 
 const introVideo = document.getElementById("introVideo");
 
-
-let started = false;
+let systemStarted = false;
 
 
 function startSystem(){
 
+    if(systemStarted) return;
 
-    if(started) return;
-
-    started = true;
-
+    systemStarted = true;
 
 
-    const intro =
-    document.getElementById("intro");
-
+    const intro = document.getElementById("intro");
 
     if(intro){
 
-        intro.style.display="none";
+        intro.style.opacity = "0";
+
+
+        setTimeout(()=>{
+
+            intro.style.display = "none";
+
+        },300);
 
     }
 
 
 
-    const boot =
-    document.getElementById("boot");
-
+    const boot = document.getElementById("boot");
 
     if(boot){
 
-        boot.style.display="flex";
+        boot.style.display = "flex";
 
     }
 
@@ -56,23 +55,28 @@ function startSystem(){
 
 
 
+
 if(introVideo){
 
 
-    introVideo.onended = ()=>{
+    // normales Ende
+
+    introVideo.addEventListener("ended", ()=>{
 
         startSystem();
 
-    };
+    });
 
 
 
-    introVideo.ontimeupdate = ()=>{
+    // Sicherheitsprüfung
+
+    introVideo.addEventListener("timeupdate", ()=>{
 
 
         if(
             introVideo.duration &&
-            introVideo.currentTime >= introVideo.duration - 0.2
+            introVideo.currentTime >= introVideo.duration - 0.1
         ){
 
             startSystem();
@@ -80,24 +84,27 @@ if(introVideo){
         }
 
 
-    };
+    });
 
 
-}
-    // Falls Handy das Video-Ende nicht erkennt
+
+    // Falls Browser das Ende verschluckt
 
     setTimeout(()=>{
 
 
-        startSystem();
+        if(!systemStarted && introVideo.readyState >= 2){
+
+            startSystem();
+
+        }
 
 
     },10000);
 
 
+
 }
-
-
 
 
 
