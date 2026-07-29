@@ -1,14 +1,13 @@
-
 // ===============================
 // NXT NEXTGEN SYSTEM
+// CLEAN MOBILE VERSION
 // ===============================
 
 
 // ===============================
-// NXT INTRO SYSTEM FIX
+// INTRO SYSTEM
 // ===============================
 
-const introVideo = document.getElementById("introVideo");
 
 let systemStarted = false;
 
@@ -21,6 +20,8 @@ function startSystem(){
 
 
     const intro = document.getElementById("intro");
+    const boot = document.getElementById("boot");
+
 
     if(intro){
 
@@ -31,13 +32,11 @@ function startSystem(){
 
             intro.style.display = "none";
 
-        },300);
+        },500);
 
     }
 
 
-
-    const boot = document.getElementById("boot");
 
     if(boot){
 
@@ -56,55 +55,45 @@ function startSystem(){
 
 
 
-if(introVideo){
+document.addEventListener("DOMContentLoaded",()=>{
 
 
-    // normales Ende
-
-    introVideo.addEventListener("ended", ()=>{
-
-        startSystem();
-
-    });
+    const introVideo =
+    document.getElementById("introVideo");
 
 
 
-    // Sicherheitsprüfung
-
-    introVideo.addEventListener("timeupdate", ()=>{
+    if(introVideo){
 
 
-        if(
-            introVideo.duration &&
-            introVideo.currentTime >= introVideo.duration - 0.1
-        ){
+        introVideo.play().catch(()=>{});
+
+
+
+        introVideo.addEventListener("ended",()=>{
 
             startSystem();
 
-        }
-
-
-    });
+        });
 
 
 
-    // Falls Browser das Ende verschluckt
+    }
+
+
+
+    // Notfall für Handy Browser
 
     setTimeout(()=>{
 
+        startSystem();
 
-        if(!systemStarted && introVideo.readyState >= 2){
-
-            startSystem();
-
-        }
-
-
-    },10000);
+    },6000);
 
 
 
-}
+});
+
 
 
 
@@ -130,7 +119,6 @@ function startBoot(){
 
 
 
-
     const messages=[
 
 
@@ -140,63 +128,64 @@ function startBoot(){
         "> Module werden geladen...",
 
 
-        "> Verbindung wird aufgebaut...",
+        "> Verbindung hergestellt...",
 
 
-        "> Server wird geprüft...",
+        "> Server geprüft...",
 
 
-        "> System bereit"
+        "> System Online 🚀"
+
 
     ];
 
 
 
-    let i=0;
-
+    let index=0;
 
 
 
     const textTimer=setInterval(()=>{
 
 
-        terminal.innerHTML += messages[i]+"<br>";
-
-        i++;
-
+        terminal.innerHTML +=
+        messages[index]+"<br>";
 
 
-        if(i>=messages.length){
+
+        index++;
+
+
+
+        if(index >= messages.length){
 
 
             clearInterval(textTimer);
 
 
-            loadBar();
+            startProgress();
 
 
         }
 
 
 
-    },400);
+    },350);
 
 
 
 
-
-
-    function loadBar(){
+    function startProgress(){
 
 
         let progress=0;
 
 
 
-        const barTimer=setInterval(()=>{
+        const timer=setInterval(()=>{
 
 
-            progress +=5;
+            progress +=10;
 
 
             bar.style.width =
@@ -207,12 +196,7 @@ function startBoot(){
             if(progress>=100){
 
 
-                clearInterval(barTimer);
-
-
-
-                terminal.innerHTML +=
-                "<br>> SYSTEM ONLINE 🚀";
+                clearInterval(timer);
 
 
 
@@ -223,16 +207,16 @@ function startBoot(){
                     document.getElementById("main");
 
 
+                    const language =
+                    document.getElementById("language");
+
+
+
                     if(main){
 
                         main.style.display="none";
 
                     }
-
-
-
-                    const language =
-                    document.getElementById("language");
 
 
 
@@ -244,7 +228,7 @@ function startBoot(){
 
 
 
-                },800);
+                },500);
 
 
 
@@ -259,9 +243,9 @@ function startBoot(){
     }
 
 
-
 }
 
+ 
 // ===============================
 // STATUS ANZEIGE
 // ===============================
@@ -317,8 +301,6 @@ setInterval(()=>{
 
 
 
-
-
 // ===============================
 // SPRACHEN
 // ===============================
@@ -367,17 +349,20 @@ rules:[
 
 
 ["🌟 Hab Spaß!",
-"Unterstütze deine Mitglieder und hilf dabei, [NXT] NextGen zu einer starken Community zu machen."]
+"Unterstütze die Community und hilf dabei, [NXT] NextGen stärker zu machen."]
 
 
 ],
 
 
+
 warning:
-"⚠️ WICHTIG<br><br>Nachdem du die Regeln gelesen hast, gehe bitte auf unserem Discord in den Kanal:<br><br>#✅-verifizierung<br><br>und bestätige dich dort."
+
+"⚠️ WICHTIG<br><br>Nachdem du die Regeln gelesen hast, gehe auf Discord in den Kanal:<br><br>#✅-verifizierung<br><br>und bestätige dich dort."
 
 
 },
+
 
 
 
@@ -398,15 +383,15 @@ rules:[
 
 
 ["🤝 Respect",
-"Treat all members with kindness and respect."],
+"Treat all members with respect."],
 
 
 ["💬 No Drama",
-"Insults, provocations and unnecessary conflicts are not allowed."],
+"Insults and unnecessary conflicts are not allowed."],
 
 
 ["📢 No Spam",
-"No advertising, flooding or mention abuse."],
+"No advertising or flooding."],
 
 
 ["🎮 Fair Play",
@@ -418,7 +403,7 @@ rules:[
 
 
 ["🛡️ Team Decisions",
-"Follow the server team's instructions."],
+"Follow the team instructions."],
 
 
 ["🌟 Have Fun!",
@@ -428,11 +413,14 @@ rules:[
 ],
 
 
+
 warning:
-"⚠️ IMPORTANT<br><br>After reading the rules go to Discord:<br><br>#✅-verification<br><br>and verify yourself."
+
+"⚠️ IMPORTANT<br><br>Go to Discord:<br><br>#✅-verification<br><br>and verify yourself."
 
 
 },
+
 
 
 
@@ -465,7 +453,7 @@ rules:[
 
 
 ["🎮 Честная игра",
-"Читы и хаки запрещены."],
+"Читы запрещены."],
 
 
 ["📂 Каналы",
@@ -483,11 +471,14 @@ rules:[
 ],
 
 
+
 warning:
+
 "⚠️ ВАЖНО<br><br>Перейдите в Discord и подтвердите доступ."
 
 
 },
+
 
 
 
@@ -538,11 +529,14 @@ rules:[
 ],
 
 
+
 warning:
+
 "⚠️ IMPORTANT<br><br>Allez sur Discord et vérifiez votre accès."
 
 
 },
+
 
 
 
@@ -593,7 +587,9 @@ rules:[
 ],
 
 
+
 warning:
+
 "⚠️ IMPORTANTE<br><br>Verifica tu acceso en Discord."
 
 
@@ -601,7 +597,6 @@ warning:
 
 
 };
-
 
 // ===============================
 // SPRACHE AUSWÄHLEN
@@ -611,17 +606,12 @@ warning:
 function selectLanguage(lang){
 
 
-    const text = languages[lang];
+    const text =
+    languages[lang];
 
 
-    if(!text){
 
-        console.log("Sprache nicht gefunden");
-
-        return;
-
-    }
-
+    if(!text) return;
 
 
 
@@ -630,15 +620,7 @@ function selectLanguage(lang){
 
 
 
-    if(!rulesText){
-
-        console.log("rulesText fehlt");
-
-        return;
-
-    }
-
-
+    if(!rulesText) return;
 
 
 
@@ -669,31 +651,30 @@ function selectLanguage(lang){
 
     <div class="warning">
 
-    ${text.warning}
+        ${text.warning}
 
     </div>
 
 
 
-    <br>
-
-
     <button onclick="goDiscord()">
 
-    🚀 Weiter zu Discord
+        🚀 Weiter zu Discord
 
     </button>
-
 
 
     `;
 
 
 
-
-
     const language =
     document.getElementById("language");
+
+
+
+    const rules =
+    document.getElementById("rules");
 
 
 
@@ -705,14 +686,6 @@ function selectLanguage(lang){
 
 
 
-
-
-
-    const rules =
-    document.getElementById("rules");
-
-
-
     if(rules){
 
 
@@ -720,9 +693,6 @@ function selectLanguage(lang){
 
 
         rules.scrollTop=0;
-
-
-        rules.classList.add("glitchFade");
 
 
     }
@@ -739,7 +709,7 @@ function selectLanguage(lang){
 
 
 // ===============================
-// WEITER ZU DISCORD
+// DISCORD SEITE
 // ===============================
 
 
@@ -769,13 +739,11 @@ function goDiscord(){
     if(loading){
 
 
-
         loading.style.display="flex";
 
 
 
         setTimeout(()=>{
-
 
 
             loading.style.display="none";
@@ -799,9 +767,7 @@ function goDiscord(){
 
 
 
-    }
-
-    else{
+    }else{
 
 
         const discord =
@@ -819,11 +785,7 @@ function goDiscord(){
     }
 
 
-
 }
-
-
-
 
 
 
@@ -833,7 +795,6 @@ function goDiscord(){
 // ===============================
 // DISCORD BEITRETEN
 // ===============================
-
 
 
 function joinDiscord(){
@@ -852,87 +813,32 @@ function joinDiscord(){
 
 
 
-
 // ===============================
 // BUTTON EFFEKT
 // ===============================
 
 
-
-document.addEventListener("DOMContentLoaded",()=>{
-
-
-    document.querySelectorAll("button")
-    .forEach(button=>{
+document.addEventListener("click",(event)=>{
 
 
-        button.addEventListener("click",()=>{
+    if(event.target.tagName === "BUTTON"){
 
 
-            button.style.transform="scale(.95)";
+        event.target.style.transform =
+        "scale(.95)";
 
 
-
-            setTimeout(()=>{
-
-
-                button.style.transform="scale(1)";
+        setTimeout(()=>{
 
 
-            },120);
+            event.target.style.transform =
+            "scale(1)";
 
 
+        },120);
 
-        });
-
-
-
-    });
-
-
-
-});
-
-
-
-
-
-
-
-// ===============================
-// CACHE TEST
-// ===============================
-
-
-// verhindert alte Zustände nach Reload
-
-
-window.addEventListener("load",()=>{
-
-
-    const rules =
-    document.getElementById("rules");
-
-
-    const discord =
-    document.getElementById("discordPage");
-
-
-
-    if(rules){
-
-        rules.style.display="none";
 
     }
-
-
-
-    if(discord){
-
-        discord.style.display="none";
-
-    }
-
 
 
 });
