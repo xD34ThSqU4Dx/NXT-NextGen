@@ -1,282 +1,441 @@
+/* =========================
+   NXT NEXTGEN STYLE
+========================= */
+
+
 *{
     box-sizing:border-box;
 }
 
+
 html,body{
+
     margin:0;
+
     width:100%;
+
     height:100%;
-    background:#000;
-    overflow:hidden;
+
+    background:#050008;
+
+    color:#fff;
+
     font-family:monospace;
-    color:#b000ff;
+
+    overflow:hidden;
+
 }
 
 
-#matrix{
+
+body::before{
+
+    content:"";
 
     position:fixed;
 
-    top:0;
-    left:0;
+    inset:0;
 
-    width:100%;
-    height:100%;
+    background:
+    radial-gradient(circle at top,#4b0082,transparent 45%),
+    radial-gradient(circle at bottom,#150020,transparent 50%);
 
-    z-index:0;
+    z-index:-1;
 
 }
+
+
+
+/* =========================
+   INTRO
+========================= */
 
 
 #intro{
+
     position:fixed;
+
     inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
     background:#000;
+
     z-index:999;
+
 }
+
 
 
 #intro video{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+
+    width:70%;
+
+    max-width:900px;
+
+    max-height:65vh;
+
+    object-fit:contain;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 0 40px #b000ff;
+
 }
+
+
+
+
+
+/* =========================
+   BOOTSCREEN
+========================= */
+
+
+#boot{
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
 
 
 #main{
 
-    position:relative;
-    z-index:2;
+    width:85%;
 
-    width:80%;
-    max-width:700px;
+    max-width:750px;
 
-    margin:80px auto;
+    padding:30px;
 
-    padding:20px;
+    background:rgba(0,0,0,.9);
 
     border:2px solid #b000ff;
 
-    background:rgba(0,0,0,.85);
+    border-radius:20px;
 
     box-shadow:
-    0 0 20px #b000ff;
+
+    0 0 30px #b000ff;
+
+    animation:fadeIn .8s;
 
 }
+
 
 
 h1{
+
     text-align:center;
+
+    color:white;
+
+    font-size:38px;
+
     text-shadow:
-    0 0 20px #b000ff;
+
+    0 0 15px #b000ff;
+
 }
+
 
 
 .status{
 
     display:flex;
-    gap:10px;
+
+    gap:15px;
+
+    margin-top:25px;
 
 }
+
 
 
 .card{
 
     flex:1;
 
-    border:1px solid #b000ff;
-
-    padding:10px;
+    padding:15px;
 
     text-align:center;
 
+    border:1px solid #b000ff;
+
+    border-radius:12px;
+
+    background:rgba(176,0,255,.1);
+
 }
+
+ 
+/* =========================
+   TERMINAL
+========================= */
 
 
 #terminal{
 
-    height:130px;
+    margin-top:25px;
 
-    margin-top:20px;
+    min-height:130px;
+
+    padding:15px;
+
+    background:#000;
+
+    border:1px solid #b000ff;
+
+    border-radius:10px;
+
+    color:#d98cff;
+
+    line-height:1.6;
+
+    box-shadow:
+
+    inset 0 0 20px rgba(176,0,255,.3);
 
 }
+
+
+
+
+
+/* =========================
+   LADEBALKEN
+========================= */
 
 
 #progress{
 
-    height:25px;
+    width:100%;
+
+    height:22px;
+
+    margin-top:25px;
 
     border:2px solid #b000ff;
 
+    border-radius:20px;
+
+    overflow:hidden;
+
+    background:#000;
+
 }
+
 
 
 #bar{
 
-    height:100%;
     width:0%;
 
-    background:#b000ff;
+    height:100%;
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #7000ff,
+    #e000ff
+    );
 
     box-shadow:
+
     0 0 20px #b000ff;
 
+    transition:.15s;
+
 }
+
+
+
+
+
+/* =========================
+   SPRACHE
+========================= */
+
 
 #language{
 
-    position:relative;
+    position:fixed;
 
-    z-index:3;
+    inset:0;
 
-    text-align:center;
+    z-index:20;
 
-}
+    display:flex;
 
+    flex-direction:column;
 
-#language button{
+    justify-content:center;
 
-    display:block;
+    align-items:center;
 
-    width:80%;
-
-    max-width:300px;
-
-    margin:15px auto;
-
-    padding:12px;
-
-    background:#000;
-
-    color:#b000ff;
-
-    border:2px solid #b000ff;
-
-    box-shadow:
-    0 0 15px #b000ff;
-
-    font-family:monospace;
-
-    font-size:16px;
-
-    cursor:pointer;
-
-}
-
-
-#language button:hover{
-
-    background:#b000ff;
-
-    color:#000;
-
-}
-#rules{
-
-    position:relative;
-
-    z-index:3;
+    background:#050008;
 
     text-align:center;
 
-    width:80%;
+}
 
-    max-width:700px;
 
-    margin:50px auto;
 
-    padding:20px;
+#language h2{
 
-    border:2px solid #b000ff;
+    font-size:32px;
 
-    background:rgba(0,0,0,.85);
+    text-shadow:
 
-    box-shadow:
     0 0 20px #b000ff;
 
 }
 
 
-#nxtGif{
-
-    width:180px;
-
-    max-width:60%;
-
-}
 
 
-.warning{
 
-    margin-top:30px;
+button{
+
+    width:280px;
+
+    margin:10px;
 
     padding:15px;
 
-    border:1px solid #b000ff;
+    background:#08000d;
 
-}
-
-
-#rules button{
-
-    margin-top:20px;
-
-    padding:12px 40px;
-
-    background:#000;
-
-    color:#b000ff;
+    color:white;
 
     border:2px solid #b000ff;
+
+    border-radius:12px;
 
     font-family:monospace;
 
     font-size:18px;
 
+    cursor:pointer;
+
+    transition:.3s;
+
 }
+
+
+
+button:hover{
+
+    background:#b000ff;
+
+    color:#000;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 0 25px #b000ff;
+
+}
+
+
+
+
+
+
+/* =========================
+   REGELN
+========================= */
+
 
 #rules{
 
-    position:relative;
+    position:fixed;
 
-    z-index:3;
+    top:50%;
 
-    width:80%;
+    left:50%;
 
-    max-width:800px;
+    transform:translate(-50%,-50%);
 
-    max-height:85vh;
+    z-index:30;
 
-    overflow-y:auto;
+    width:85%;
 
-    margin:40px auto;
+    max-width:850px;
 
-    padding:25px;
+    height:85vh;
+
+    padding:30px;
+
+    background:rgba(0,0,0,.95);
 
     border:2px solid #b000ff;
 
-    background:rgba(0,0,0,.88);
+    border-radius:20px;
 
     box-shadow:
-    0 0 20px #b000ff,
-    inset 0 0 20px rgba(176,0,255,.3);
+    0 0 35px #b000ff;
 
-    text-align:center;
+    overflow-y:auto;
+
+    animation:rulesOpen .5s ease;
+
+} 
+
+
+
+#rules::-webkit-scrollbar{
+
+    width:10px;
 
 }
+
+
+
+#rules::-webkit-scrollbar-thumb{
+
+    background:#b000ff;
+
+    border-radius:10px;
+
+}
+
+
 
 
 #nxtGif{
 
     display:block;
 
-    margin:0 auto 25px auto;
-
     width:280px;
 
     max-width:80%;
 
+    margin:0 auto 25px;
+
+    border-radius:15px;
+
+    box-shadow:
+
+    0 0 25px #b000ff;
+
 }
+
+
+
 
 
 #rulesText{
@@ -286,23 +445,21 @@ h1{
 }
 
 
+
+
 #rulesText h2{
 
     text-align:center;
 
+    font-size:28px;
+
     text-shadow:
+
     0 0 15px #b000ff;
 
 }
 
 
-#rulesText h3{
-
-    color:#b000ff;
-
-    margin-top:25px;
-
-}
 
 
 #rulesText h4{
@@ -314,11 +471,14 @@ h1{
 }
 
 
+
 #rulesText p{
 
-    line-height:1.5;
+    line-height:1.6;
 
 }
+
+
 
 
 
@@ -326,80 +486,196 @@ h1{
 
     margin-top:30px;
 
-    padding:15px;
+    padding:20px;
 
     border:1px solid #b000ff;
 
-    box-shadow:
-    0 0 10px #b000ff;
+    border-radius:12px;
+
+    background:
+
+    rgba(176,0,255,.1);
+
+}
+
+ 
+/* =========================
+   DISCORD SEITE
+========================= */
+
+
+#discordPage{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:40;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:30px;
+
+    background:#050008;
 
 }
 
 
 
-#rules button{
 
-    margin-top:20px;
+#discordPage h2{
 
-    padding:12px 40px;
+    font-size:32px;
+
+    text-shadow:
+
+    0 0 20px #b000ff;
+
+}
+
+
+
+
+#discordPage p{
+
+    max-width:500px;
+
+    color:#ddd;
+
+    line-height:1.6;
+
+}
+
+
+
+
+
+#discordGif{
+
+    width:300px;
+
+    max-width:80%;
+
+    margin-bottom:25px;
+
+    border-radius:20px;
+
+    box-shadow:
+
+    0 0 35px #b000ff;
+
+}
+
+
+
+
+
+#discordPage button{
+
+    width:300px;
+
+    margin-top:25px;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   DISCORD LOADING
+========================= */
+
+
+#discordLoading{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:50;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
 
     background:#000;
 
-    color:#b000ff;
+    color:white;
 
-    border:2px solid #b000ff;
-
-    font-family:monospace;
-
-    font-size:18px;
-
-    cursor:pointer;
+    font-size:22px;
 
 }
 
 
 
-#rules button:hover{
 
-    background:#b000ff;
+#discordLoading::after{
 
-    color:#000;
+    content:"";
+
+    width:50px;
+
+    height:50px;
+
+    margin-top:25px;
+
+    border:4px solid #333;
+
+    border-top-color:#b000ff;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
 
 }
+
+
+
+
+
+
+/* =========================
+   ANIMATIONEN
+========================= */
+
 
 .glitchFade{
 
-    animation: glitchFade 1s;
+    animation:fadeScale .8s;
 
 }
 
 
-@keyframes glitchFade{
 
+@keyframes fadeScale{
 
-    0%{
+    from{
 
         opacity:0;
 
-        transform:scale(0.95);
+        transform:scale(.9);
 
         filter:blur(10px);
 
     }
 
 
-    50%{
-
-        opacity:.5;
-
-        transform:scale(1.02);
-
-        filter:blur(2px);
-
-    }
-
-
-    100%{
+    to{
 
         opacity:1;
 
@@ -410,142 +686,129 @@ h1{
     }
 
 }
-#discordGif{
-
-    width:250px;
-
-    max-width:80%;
-
-    display:block;
-
-    margin:0 auto 20px auto;
-
-    pointer-events:none;
-
-    user-select:none;
-
-}
-
-#discordPage{
-
-    position:relative;
-
-    z-index:10;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    width:80%;
-
-    max-width:700px;
-
-    margin:40px auto;
-
-    padding:30px;
-
-    border:2px solid #b000ff;
-
-    background:rgba(0,0,0,.9);
-
-    box-shadow:
-    0 0 20px #b000ff;
-
-    text-align:center;
-
-}
 
 
-#discordGif{
 
-    width:250px;
 
-    max-width:80%;
 
-    margin-bottom:20px;
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
 
 }
 
 
 
-#discordPage button{
 
-    display:block;
+@keyframes fadeIn{
 
-    margin-top:25px;
+    from{
 
-    padding:15px 40px;
+        opacity:0;
 
-    background:#000;
+        transform:translateY(30px);
 
-    color:#b000ff;
-
-    border:2px solid #b000ff;
-
-    font-family:monospace;
-
-    font-size:18px;
-
-    cursor:pointer;
-
-}
+    }
 
 
-#discordPage button:hover{
+    to{
 
-    background:#b000ff;
+        opacity:1;
 
-    color:#000;
+        transform:translateY(0);
 
-}
-
-#discordLoading{
-
-    position:fixed;
-
-    inset:0;
-
-    background:#000;
-
-    z-index:100;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    color:#b000ff;
-
-    font-family:monospace;
-
-    text-shadow:
-    0 0 20px #b000ff;
+    }
 
 }
 
 
-#discordText{
-
-    animation:blinkText 1s infinite;
-
-}
 
 
-@keyframes blinkText{
 
 
-50%{
 
-opacity:.3;
+/* =========================
+   HANDY
+========================= */
 
-}
+
+@media(max-width:700px){
+
+
+    #intro video{
+
+        width:95%;
+
+        max-height:50vh;
+
+    }
+
+
+
+    #main{
+
+        width:92%;
+
+        padding:20px;
+
+    }
+
+
+
+    h1{
+
+        font-size:28px;
+
+    }
+
+
+
+    .status{
+
+        flex-direction:column;
+
+    }
+
+
+
+    #rules{
+
+        width:95%;
+
+        height:85vh;
+
+        padding:20px;
+
+    }
+
+
+
+    #rulesText h2{
+
+        font-size:22px;
+
+    }
+
+
+
+    button{
+
+        width:90%;
+
+        max-width:320px;
+
+    }
 
 
 }
