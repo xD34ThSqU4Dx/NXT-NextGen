@@ -1,48 +1,352 @@
-// ===============================
-// NXT NEXTGEN SYSTEM
-// ===============================
+/* =========================
+   NXT NEXTGEN STYLE
+========================= */
 
 
-// INTRO VIDEO
-
-const introVideo = document.getElementById("introVideo");
-
-
-if(introVideo){
-
-    introVideo.onended = ()=>{
+*{
+    box-sizing:border-box;
+}
 
 
-        let intro = document.getElementById("intro");
+html,body{
+
+    margin:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:#050008;
+
+    color:#fff;
+
+    font-family:monospace;
+
+    overflow:hidden;
+
+}
 
 
-        intro.style.opacity="0";
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at top,#4b0082,transparent 45%),
+    radial-gradient(circle at bottom,#150020,transparent 50%);
+
+    z-index:-1;
+
+}
 
 
-        setTimeout(()=>{
+
+/* =========================
+   INTRO
+========================= */
 
 
-            intro.style.display="none";
+#intro{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#000;
+
+    z-index:999;
+
+}
 
 
-            let boot =
-            document.getElementById("boot");
+
+#intro video{
+
+    width:70%;
+
+    max-width:900px;
+
+    max-height:65vh;
+
+    object-fit:contain;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 0 40px #b000ff;
+
+}
 
 
-            if(boot){
-
-                boot.style.display="flex";
-
-            }
 
 
-            startBoot();
+
+/* =========================
+   BOOTSCREEN
+========================= */
 
 
-        },500);
+#boot{
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
 
 
-    };
+
+
+#main{
+
+    width:85%;
+
+    max-width:750px;
+
+    padding:30px;
+
+    background:rgba(0,0,0,.9);
+
+    border:2px solid #b000ff;
+
+    border-radius:20px;
+
+    box-shadow:
+
+    0 0 30px #b000ff;
+
+    animation:fadeIn .8s;
+
+}
+
+
+
+h1{
+
+    text-align:center;
+
+    color:white;
+
+    font-size:38px;
+
+    text-shadow:
+
+    0 0 15px #b000ff;
+
+}
+
+
+
+.status{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+
+
+.card{
+
+    flex:1;
+
+    padding:15px;
+
+    text-align:center;
+
+    border:1px solid #b000ff;
+
+    border-radius:12px;
+
+    background:rgba(176,0,255,.1);
+
+}
+
+ 
+/* =========================
+   TERMINAL
+========================= */
+
+
+#terminal{
+
+    margin-top:25px;
+
+    min-height:130px;
+
+    padding:15px;
+
+    background:#000;
+
+    border:1px solid #b000ff;
+
+    border-radius:10px;
+
+    color:#d98cff;
+
+    line-height:1.6;
+
+    box-shadow:
+
+    inset 0 0 20px rgba(176,0,255,.3);
+
+}
+
+
+
+
+
+/* =========================
+   LADEBALKEN
+========================= */
+
+
+#progress{
+
+    width:100%;
+
+    height:22px;
+
+    margin-top:25px;
+
+    border:2px solid #b000ff;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    background:#000;
+
+}
+
+
+
+#bar{
+
+    width:0%;
+
+    height:100%;
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #7000ff,
+    #e000ff
+    );
+
+    box-shadow:
+
+    0 0 20px #b000ff;
+
+    transition:.15s;
+
+}
+
+
+
+
+
+/* =========================
+   SPRACHE
+========================= */
+
+
+#language{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:20;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#050008;
+
+    text-align:center;
+
+}
+
+
+
+#language h2{
+
+    font-size:32px;
+
+    text-shadow:
+
+    0 0 20px #b000ff;
+
+}
+
+
+
+
+
+button{
+
+    width:280px;
+
+    margin:10px;
+
+    padding:15px;
+
+    background:#08000d;
+
+    color:white;
+
+    border:2px solid #b000ff;
+
+    border-radius:12px;
+
+    font-family:monospace;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+button:hover{
+
+    background:#b000ff;
+
+    color:#000;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 0 25px #b000ff;
 
 }
 
@@ -51,154 +355,82 @@ if(introVideo){
 
 
 
-// ===============================
-// BOOT SYSTEM
-// ===============================
+/* =========================
+   REGELN
+========================= */
 
 
+#rules{
 
-function startBoot(){
+    position:fixed;
 
+    top:50%;
 
-    let terminal =
-    document.getElementById("terminal");
+    left:50%;
 
+    transform:translate(-50%,-50%);
 
-    let bar =
-    document.getElementById("bar");
+    z-index:30;
 
+    width:85%;
 
+    max-width:850px;
 
-    if(!terminal || !bar){
+    height:85vh;
 
-        return;
+    padding:30px;
 
-    }
+    background:rgba(0,0,0,.95);
 
+    border:2px solid #b000ff;
 
+    border-radius:20px;
 
-    let messages=[
+    box-shadow:
+    0 0 35px #b000ff;
 
+    overflow-y:auto;
 
-        "> NXT Core startet...",
+    animation:rulesOpen .5s ease;
 
+}
 
-        "> Module werden geladen...",
 
 
-        "> Community Verbindung aufgebaut...",
+#rules::-webkit-scrollbar{
 
+    width:10px;
 
-        "> Server Status geprüft...",
+}
 
 
-        "> System bereit"
 
-    ];
+#rules::-webkit-scrollbar-thumb{
 
+    background:#b000ff;
 
+    border-radius:10px;
 
-    let i=0;
+}
 
 
 
-    let bootText=setInterval(()=>{
 
+#nxtGif{
 
-        terminal.innerHTML +=
-        messages[i]+"<br>";
+    display:block;
 
+    width:280px;
 
+    max-width:80%;
 
-        i++;
+    margin:0 auto 25px;
 
+    border-radius:15px;
 
+    box-shadow:
 
-        if(i >= messages.length){
-
-
-            clearInterval(bootText);
-
-
-            loadBar();
-
-
-        }
-
-
-
-    },250);
-
-
-
-
-
-
-    function loadBar(){
-
-
-        let progress=0;
-
-
-
-        let timer=setInterval(()=>{
-
-
-            progress += 10;
-
-
-
-            bar.style.width =
-            progress+"%";
-
-
-
-            if(progress>=100){
-
-
-
-                clearInterval(timer);
-
-
-
-                terminal.innerHTML +=
-                "<br>> ONLINE 🚀";
-
-
-
-                setTimeout(()=>{
-
-
-                    document.getElementById("main").style.display="none";
-
-
-                    let language =
-                    document.getElementById("language");
-
-
-
-                    if(language){
-
-                        language.style.display="flex";
-
-                    }
-
-
-
-                },600);
-
-
-
-            }
-
-
-
-        },30);
-
-
-
-    }
-
+    0 0 25px #b000ff;
 
 }
 
@@ -206,417 +438,151 @@ function startBoot(){
 
 
 
+#rulesText{
 
-// ===============================
-// STATUS ANZEIGE
-// ===============================
-
-
-setInterval(()=>{
-
-
-    let cpu=document.getElementById("cpu");
-
-    let ram=document.getElementById("ram");
-
-    let signal=document.getElementById("signal");
-
-
-
-    if(cpu){
-
-        cpu.innerHTML =
-        Math.floor(Math.random()*30+60);
-
-    }
-
-
-
-    if(ram){
-
-        ram.innerHTML =
-        Math.floor(Math.random()*40+40);
-
-    }
-
-
-
-    if(signal){
-
-        signal.innerHTML =
-        Math.floor(Math.random()*5+95);
-
-    }
-
-
-
-},700);
-
-
-// ===============================
-// SPRACH SYSTEM
-// ===============================
-
-
-const languages = {
-
-
-de:{
-
-welcome:"📜 Willkommen bei [NXT] NextGen",
-
-intro:"Bevor du Zugriff auf den Server erhältst, lies dir bitte unsere Regeln sorgfältig durch.",
-
-rulesTitle:"⚔️ Unsere Regeln",
-
-
-rules:[
-
-["🤝 Respekt","Behandle alle Mitglieder freundlich und respektvoll."],
-
-["💬 Kein Drama","Diskussionen sind willkommen – Beleidigungen, Provokationen oder unnötiger Streit nicht."],
-
-["📢 Kein Spam","Keine Werbung, kein Flooding und kein Missbrauch von Erwähnungen."],
-
-["🎮 Fair Play","Cheats, Hacks oder Exploits sind nicht erlaubt."],
-
-["📂 Kanäle nutzen","Bitte nutze die passenden Kanäle und halte den Server übersichtlich."],
-
-["🛡️ Teamentscheidungen","Den Anweisungen des Serverteams ist Folge zu leisten."],
-
-["🌟 Hab Spaß!","Unterstütze deine Mitglieder und hilf dabei, [NXT] NextGen zu stärken."]
-
-],
-
-
-warning:"⚠️ WICHTIG<br><br>Nachdem du die Regeln gelesen hast, gehe bitte auf unserem Discord in den Kanal:<br><br>#✅-verifizierung<br><br>und bestätige dich dort."
-
-
-},
-
-
-
-
-en:{
-
-welcome:"📜 Welcome to [NXT] NextGen",
-
-intro:"Before you get access to the server, please read our rules carefully.",
-
-rulesTitle:"⚔️ Our Rules",
-
-
-rules:[
-
-["🤝 Respect","Treat all members with respect."],
-
-["💬 No Drama","Arguments, insults and unnecessary conflicts are not allowed."],
-
-["📢 No Spam","No advertising or flooding."],
-
-["🎮 Fair Play","Cheats, hacks and exploits are forbidden."],
-
-["📂 Channels","Use the correct channels."],
-
-["🛡️ Team Decisions","Follow the team instructions."],
-
-["🌟 Have Fun!","Help build the [NXT] NextGen community."]
-
-],
-
-
-warning:"⚠️ IMPORTANT<br><br>After reading the rules go to Discord:<br><br>#✅-verification<br><br>and verify yourself."
-
-},
-
-
-
-
-ru:{
-
-welcome:"📜 Добро пожаловать в [NXT] NextGen",
-
-intro:"Перед доступом к серверу прочитайте правила.",
-
-rulesTitle:"⚔️ Наши правила",
-
-
-rules:[
-
-["🤝 Уважение","Относитесь ко всем участникам уважительно."],
-
-["💬 Без конфликтов","Оскорбления и провокации запрещены."],
-
-["📢 Без спама","Реклама и флуд запрещены."],
-
-["🎮 Честная игра","Читы и хаки запрещены."],
-
-["📂 Каналы","Используйте правильные каналы."],
-
-["🛡️ Команда","Следуйте решениям администрации."],
-
-["🌟 Веселитесь","Помогайте сообществу."]
-
-],
-
-
-warning:"⚠️ ВАЖНО<br><br>Перейдите в Discord и подтвердите доступ."
-
-},
-
-
-
-
-fr:{
-
-welcome:"📜 Bienvenue chez [NXT] NextGen",
-
-intro:"Veuillez lire attentivement nos règles.",
-
-rulesTitle:"⚔️ Nos règles",
-
-
-rules:[
-
-["🤝 Respect","Respectez tous les membres."],
-
-["💬 Pas de conflit","Les insultes sont interdites."],
-
-["📢 Pas de spam","Pas de publicité ni flood."],
-
-["🎮 Fair Play","Les cheats sont interdits."],
-
-["📂 Salons","Utilisez les bons salons."],
-
-["🛡️ Équipe","Respectez les décisions."],
-
-["🌟 Amusez-vous","Aidez la communauté."]
-
-],
-
-
-warning:"⚠️ IMPORTANT<br><br>Allez sur Discord et vérifiez votre accès."
-
-},
-
-
-
-
-es:{
-
-welcome:"📜 Bienvenido a [NXT] NextGen",
-
-intro:"Lee nuestras reglas cuidadosamente.",
-
-rulesTitle:"⚔️ Nuestras reglas",
-
-
-rules:[
-
-["🤝 Respeto","Trata a todos con respeto."],
-
-["💬 Sin drama","No insultos ni conflictos."],
-
-["📢 Sin spam","No publicidad ni flood."],
-
-["🎮 Juego limpio","No cheats ni hacks."],
-
-["📂 Canales","Usa los canales correctos."],
-
-["🛡️ Equipo","Sigue las instrucciones."],
-
-["🌟 Diviértete","Ayuda a la comunidad."]
-
-],
-
-
-warning:"⚠️ IMPORTANTE<br><br>Verifica tu acceso en Discord."
+    text-align:left;
 
 }
 
 
-};
 
 
+#rulesText h2{
 
+    text-align:center;
 
+    font-size:28px;
 
-// ===============================
-// SPRACHE AUSWÄHLEN
-// ===============================
+    text-shadow:
 
-
-function selectLanguage(lang){
-
-
-    let text =
-    languages[lang];
-
-
-
-    if(!text){
-
-        console.log("Sprache fehlt");
-
-        return;
-
-    }
-
-
-
-    let rulesText =
-    document.getElementById("rulesText");
-
-
-
-    if(!rulesText){
-
-        console.log("rulesText fehlt");
-
-        return;
-
-    }
-
-
-
-    rulesText.innerHTML = `
-
-    <h2>${text.welcome}</h2>
-
-    <p>${text.intro}</p>
-
-
-    <h3>${text.rulesTitle}</h3>
-
-
-    ${text.rules.map(rule=>`
-
-        <h4>${rule[0]}</h4>
-
-        <p>${rule[1]}</p>
-
-
-    `).join("")}
-
-
-    `;
-
-
-
-    let warning =
-    document.querySelector(".warning");
-
-
-
-    if(warning){
-
-        warning.innerHTML =
-        text.warning;
-
-    }
-
-
-
-    document.getElementById("language").style.display="none";
-
-
-    let rules =
-    document.getElementById("rules");
-
-
-    if(rules){
-
-
-        rules.style.display="block";
-
-
-        rules.scrollTop=0;
-
-
-        rules.classList.add("glitchFade");
-
-
-    }
-
-
+    0 0 15px #b000ff;
 
 }
 
 
-// ===============================
-// WEITER ZU DISCORD
-// ===============================
 
 
-function goDiscord(){
+#rulesText h4{
 
+    color:#d98cff;
 
-    let rules =
-    document.getElementById("rules");
+    margin-bottom:5px;
 
-
-    let loading =
-    document.getElementById("discordLoading");
+}
 
 
 
-    if(rules){
+#rulesText p{
 
-        rules.style.display="none";
+    line-height:1.6;
 
-    }
-
-
-
-    if(loading){
-
-
-        loading.style.display="flex";
+}
 
 
 
-        setTimeout(()=>{
 
 
-            loading.style.display="none";
+.warning{
+
+    margin-top:30px;
+
+    padding:20px;
+
+    border:1px solid #b000ff;
+
+    border-radius:12px;
+
+    background:
+
+    rgba(176,0,255,.1);
+
+}
+
+ 
+/* =========================
+   DISCORD SEITE
+========================= */
 
 
-            let discord =
-            document.getElementById("discordPage");
+#discordPage{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:40;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:30px;
+
+    background:#050008;
+
+}
 
 
 
-            if(discord){
 
-                discord.style.display="flex";
+#discordPage h2{
 
-            }
+    font-size:32px;
 
+    text-shadow:
 
+    0 0 20px #b000ff;
 
-        },1200);
-
-
-
-    }
-
-    else{
-
-
-        let discord =
-        document.getElementById("discordPage");
+}
 
 
 
-        if(discord){
 
-            discord.style.display="flex";
+#discordPage p{
 
-        }
+    max-width:500px;
+
+    color:#ddd;
+
+    line-height:1.6;
+
+}
 
 
-    }
 
+
+
+#discordGif{
+
+    width:300px;
+
+    max-width:80%;
+
+    margin-bottom:25px;
+
+    border-radius:20px;
+
+    box-shadow:
+
+    0 0 35px #b000ff;
+
+}
+
+
+
+
+
+#discordPage button{
+
+    width:300px;
+
+    margin-top:25px;
 
 }
 
@@ -626,17 +592,143 @@ function goDiscord(){
 
 
 
-// ===============================
-// DISCORD BUTTON
-// ===============================
+/* =========================
+   DISCORD LOADING
+========================= */
 
 
-function joinDiscord(){
+#discordLoading{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:50;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#000;
+
+    color:white;
+
+    font-size:22px;
+
+}
 
 
-    window.location.href =
-    "https://discord.com/invite/9k5QrjW3Tn";
 
+
+#discordLoading::after{
+
+    content:"";
+
+    width:50px;
+
+    height:50px;
+
+    margin-top:25px;
+
+    border:4px solid #333;
+
+    border-top-color:#b000ff;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+
+}
+
+
+
+
+
+
+/* =========================
+   ANIMATIONEN
+========================= */
+
+
+.glitchFade{
+
+    animation:fadeScale .8s;
+
+}
+
+
+
+@keyframes fadeScale{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.9);
+
+        filter:blur(10px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+        filter:blur(0);
+
+    }
+
+}
+
+
+
+
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
 
 }
 
@@ -646,71 +738,78 @@ function joinDiscord(){
 
 
 
-// ===============================
-// BUTTON ANIMATION
-// ===============================
+/* =========================
+   HANDY
+========================= */
 
 
-document.addEventListener("DOMContentLoaded",()=>{
+@media(max-width:700px){
 
 
-    document.querySelectorAll("button")
-    .forEach(button=>{
+    #intro video{
 
+        width:95%;
 
-        button.addEventListener("click",()=>{
-
-
-            button.style.transform="scale(.95)";
-
-
-            setTimeout(()=>{
-
-
-                button.style.transform="scale(1)";
-
-
-            },120);
-
-
-
-        });
-
-
-    });
-
-
-});
-
-
-
-
-
-
-
-// ===============================
-// SICHERHEITSCHECK
-// ===============================
-
-
-// Falls Seite neu geladen wird
-// und Elemente versteckt bleiben
-
-
-window.onload=()=>{
-
-
-    let discord =
-    document.getElementById("discordPage");
-
-
-    if(discord){
-
-        discord.style.display="none";
+        max-height:50vh;
 
     }
 
 
 
-};
+    #main{
 
+        width:92%;
+
+        padding:20px;
+
+    }
+
+
+
+    h1{
+
+        font-size:28px;
+
+    }
+
+
+
+    .status{
+
+        flex-direction:column;
+
+    }
+
+
+
+    #rules{
+
+        width:95%;
+
+        height:85vh;
+
+        padding:20px;
+
+    }
+
+
+
+    #rulesText h2{
+
+        font-size:22px;
+
+    }
+
+
+
+    button{
+
+        width:90%;
+
+        max-width:320px;
+
+    }
+
+
+}
+    
