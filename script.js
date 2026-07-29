@@ -1,4 +1,4 @@
-alert("NXT SCRIPT GELADEN");
+alert("SCRIPT LÄUFT");
 // ===============================
 // NXT NEXTGEN SYSTEM
 // ===============================
