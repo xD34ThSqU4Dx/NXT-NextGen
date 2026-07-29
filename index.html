@@ -17,20 +17,31 @@
 <body>
 
 
+
 <!-- =========================
-     INTRO VIDEO
+     INTRO
 ========================= -->
 
 
 <div id="intro">
 
-    <video id="introVideo" autoplay muted playsinline preload="metadata" ontimeupdate="if(this.currentTime >= this.duration-0.2){document.getElementById('intro').style.display='none';document.getElementById('boot').style.display='flex';startBoot();}">
+
+    <video 
+    id="introVideo"
+    autoplay
+    muted
+    playsinline
+    preload="metadata">
+
 
         <source src="./media/intro.mp4" type="video/mp4">
 
+
     </video>
 
+
 </div>
+
 
 
 
@@ -53,6 +64,7 @@
 
 
 
+
 <div class="status">
 
 
@@ -68,6 +80,7 @@ CPU<br>
 
 
 
+
 <div class="card">
 
 RAM<br>
@@ -77,6 +90,7 @@ RAM<br>
 </span>%
 
 </div>
+
 
 
 
@@ -102,15 +116,20 @@ SIGNAL<br>
 
 
 
+
 <div id="progress">
 
-    <div id="bar"></div>
 
-</div>
-
+<div id="bar"></div>
 
 
 </div>
+
+
+
+
+</div>
+
 
 </div>
 
@@ -127,46 +146,63 @@ SIGNAL<br>
 <div id="language" style="display:none;">
 
 
+
 <h2>
+
 🌐 Sprache auswählen
+
 </h2>
 
 
 
+
 <button onclick="selectLanguage('de')">
+
 🇩🇪 Deutsch
+
 </button>
+
 
 
 
 <button onclick="selectLanguage('en')">
+
 🇬🇧 English
+
 </button>
+
 
 
 
 <button onclick="selectLanguage('ru')">
+
 🇷🇺 Русский
+
 </button>
+
 
 
 
 <button onclick="selectLanguage('fr')">
+
 🇫🇷 Français
+
 </button>
 
 
 
+
 <button onclick="selectLanguage('es')">
+
 🇪🇸 Español
+
 </button>
 
 
 
 </div>
 
-     
-<!-- =========================
+     <!-- =========================
      REGELN
 ========================= -->
 
@@ -175,109 +211,171 @@ SIGNAL<br>
 
 
 
-<img id="nxtGif" src="./media/nxt.gif" alt="[NXT] NextGen">
+<img 
+id="nxtGif" 
+src="./media/nxt.gif" 
+alt="[NXT] NextGen">
+
+
 
 
 
 <div id="rulesText">
 
 
+
 <h2>
+
 📜 Willkommen bei [NXT] NextGen
+
 </h2>
 
 
 
+
 <p>
+
 Bevor du Zugriff auf den Server erhältst,
 lies dir bitte unsere Regeln sorgfältig durch.
+
 </p>
 
 
 
 
 <h3>
+
 ⚔️ Unsere Regeln
+
 </h3>
 
 
 
 
 <h4>
+
 🤝 Respekt
+
 </h4>
 
+
 <p>
+
 Behandle alle Mitglieder freundlich und respektvoll.
+
 </p>
 
 
 
 
+
+
 <h4>
+
 💬 Kein Drama
+
 </h4>
 
+
 <p>
+
 Diskussionen sind willkommen –
 Beleidigungen, Provokationen oder unnötiger Streit nicht.
+
 </p>
 
 
 
 
+
+
 <h4>
+
 📢 Kein Spam
+
 </h4>
 
+
 <p>
+
 Keine Werbung, kein Flooding und kein Missbrauch von Erwähnungen.
+
 </p>
 
 
 
 
+
+
 <h4>
+
 🎮 Fair Play
+
 </h4>
 
+
 <p>
+
 Cheats, Hacks oder Exploits sind nicht erlaubt.
+
 </p>
 
 
 
 
+
+
 <h4>
+
 📂 Kanäle nutzen
+
 </h4>
 
+
 <p>
+
 Bitte nutze die passenden Kanäle und halte den Server übersichtlich.
+
 </p>
 
 
 
 
+
+
 <h4>
+
 🛡️ Teamentscheidungen
+
 </h4>
 
+
 <p>
+
 Den Anweisungen des Serverteams ist Folge zu leisten.
+
 </p>
 
 
 
 
+
+
 <h4>
+
 🌟 Hab Spaß!
+
 </h4>
 
+
 <p>
+
 Unterstütze deine Mitglieder und hilf dabei,
 [NXT] NextGen zu einer starken Community zu machen.
+
 </p>
+
+
 
 
 
@@ -290,14 +388,19 @@ Unterstütze deine Mitglieder und hilf dabei,
 
 <br><br>
 
+
 Nachdem du die Regeln gelesen hast,
 gehe bitte auf unserem Discord in den Kanal:
 
+
 <br><br>
+
 
 #✅-verifizierung
 
+
 <br><br>
+
 
 und bestätige dich dort,
 um Zugriff auf alle Bereiche von [NXT] NextGen zu erhalten.
@@ -308,11 +411,18 @@ um Zugriff auf alle Bereiche von [NXT] NextGen zu erhalten.
 
 
 
+
+
 <button onclick="goDiscord()">
+
 
 🚀 Weiter zu Discord
 
+
 </button>
+
+
+
 
 
 
@@ -334,11 +444,15 @@ um Zugriff auf alle Bereiche von [NXT] NextGen zu erhalten.
 <div id="discordLoading" style="display:none;">
 
 
+
 <div id="discordText">
+
 
 Verbindung zu Discord wird hergestellt...
 
+
 </div>
+
 
 
 </div>
@@ -357,19 +471,29 @@ Verbindung zu Discord wird hergestellt...
 
 
 
-<img id="discordGif" src="./media/nxt.gif" alt="[NXT] NextGen">
+<img 
+id="discordGif"
+src="./media/nxt.gif"
+alt="[NXT] NextGen">
 
 
 
-<h2>
+
+
+<h2 id="discordTitle">
+
 
 🎮 Willkommen bei [NXT] NextGen
+
 
 </h2>
 
 
 
-<p>
+
+
+<p id="discordDescription">
+
 
 Deine Registrierung ist fast abgeschlossen.
 
@@ -377,27 +501,32 @@ Deine Registrierung ist fast abgeschlossen.
 
 Klicke auf den Button und tritt unserer Community bei.
 
+
 </p>
 
 
 
-<button onclick="joinDiscord()">
+
+
+
+<button 
+id="discordButton"
+onclick="joinDiscord()">
+
+
 
 🚀 Discord beitreten
+
+
 
 </button>
 
 
 
+
 </div>
 
-
-     
-
-
-
-
-<!-- =========================
+     <!-- =========================
      SCRIPT
 ========================= -->
 
@@ -410,3 +539,6 @@ Klicke auf den Button und tritt unserer Community bei.
 
 
 </html>
+
+
+     
