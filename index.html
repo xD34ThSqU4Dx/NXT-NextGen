@@ -9,9 +9,7 @@
 
 <title>[NXT] NextGen</title>
 
-
 <link rel="stylesheet" href="style.css">
-
 
 </head>
 
@@ -19,21 +17,18 @@
 <body>
 
 
-
-<!-- =====================
+<!-- =========================
      INTRO VIDEO
-===================== -->
+========================= -->
 
 
 <div id="intro">
 
+    <video id="introVideo" autoplay muted playsinline preload="auto">
 
-<video id="introVideo" autoplay muted playsinline preload="auto">
+        <source src="./media/intro.mp4" type="video/mp4">
 
-<source src="./media/intro.mp4" type="video/mp4">
-
-</video>
-
+    </video>
 
 </div>
 
@@ -41,9 +36,9 @@
 
 
 
-<!-- =====================
+<!-- =========================
      BOOT SYSTEM
-===================== -->
+========================= -->
 
 
 <div id="boot" style="display:none;">
@@ -65,7 +60,9 @@
 
 CPU<br>
 
-<span id="cpu">0</span>%
+<span id="cpu">
+0
+</span>%
 
 </div>
 
@@ -75,7 +72,9 @@ CPU<br>
 
 RAM<br>
 
-<span id="ram">0</span>%
+<span id="ram">
+0
+</span>%
 
 </div>
 
@@ -85,10 +84,11 @@ RAM<br>
 
 SIGNAL<br>
 
-<span id="signal">0</span>%
+<span id="signal">
+0
+</span>%
 
 </div>
-
 
 
 </div>
@@ -101,30 +101,27 @@ SIGNAL<br>
 
 
 
+
 <div id="progress">
 
+    <div id="bar"></div>
 
-<div id="bar"></div>
+</div>
 
+
+
+</div>
 
 </div>
 
 
 
 
-</div>
 
 
-</div>
-
-
-
-
-
-
-<!-- =====================
-     SPRACHE
-===================== -->
+<!-- =========================
+     SPRACHAUSWAHL
+========================= -->
 
 
 <div id="language" style="display:none;">
@@ -137,254 +134,153 @@ SIGNAL<br>
 
 
 <button onclick="selectLanguage('de')">
-
 🇩🇪 Deutsch
-
 </button>
 
 
 
 <button onclick="selectLanguage('en')">
-
 🇬🇧 English
-
 </button>
 
 
 
 <button onclick="selectLanguage('ru')">
-
 🇷🇺 Русский
-
 </button>
 
 
 
 <button onclick="selectLanguage('fr')">
-
 🇫🇷 Français
-
 </button>
 
 
 
 <button onclick="selectLanguage('es')">
-
 🇪🇸 Español
-
 </button>
 
 
 
 </div>
 
-<!-- =====================
+     
+<!-- =========================
      REGELN
-===================== -->
+========================= -->
 
 
 <div id="rules" style="display:none;">
 
 
 
-<div id="rulesBox">
-
-
-
-<!-- REGEL VIDEO -->
-
-
 <img id="nxtGif" src="./media/nxt.gif" alt="[NXT] NextGen">
-
-
-
 
 
 
 <div id="rulesText">
 
 
-
 <h2>
-
 📜 Willkommen bei [NXT] NextGen
-
 </h2>
 
 
 
-
 <p>
-
 Bevor du Zugriff auf den Server erhältst,
 lies dir bitte unsere Regeln sorgfältig durch.
-
 </p>
-
-
 
 
 
 
 <h3>
-
 ⚔️ Unsere Regeln
-
 </h3>
 
 
 
 
-
-
-
 <h4>
-
 🤝 Respekt
-
 </h4>
 
-
 <p>
-
 Behandle alle Mitglieder freundlich und respektvoll.
-
 </p>
 
 
 
 
-
-
-
-
 <h4>
-
 💬 Kein Drama
-
 </h4>
 
-
 <p>
-
 Diskussionen sind willkommen –
 Beleidigungen, Provokationen oder unnötiger Streit nicht.
-
 </p>
 
 
 
 
-
-
-
-
 <h4>
-
 📢 Kein Spam
-
 </h4>
 
-
 <p>
-
 Keine Werbung, kein Flooding und kein Missbrauch von Erwähnungen.
-
 </p>
 
 
 
 
-
-
-
-
 <h4>
-
 🎮 Fair Play
-
 </h4>
 
-
 <p>
-
 Cheats, Hacks oder Exploits sind nicht erlaubt.
-
 </p>
 
 
 
 
-
-
-
-
 <h4>
-
 📂 Kanäle nutzen
-
 </h4>
 
-
 <p>
-
 Bitte nutze die passenden Kanäle und halte den Server übersichtlich.
-
 </p>
 
 
 
 
-
-
-
-
 <h4>
-
 🛡️ Teamentscheidungen
-
 </h4>
 
-
 <p>
-
 Den Anweisungen des Serverteams ist Folge zu leisten.
-
 </p>
-
-
-
-
 
 
 
 
 <h4>
-
 🌟 Hab Spaß!
-
 </h4>
 
-
 <p>
-
-Unterstütze deine Gildenkollegen und hilf dabei,
+Unterstütze deine Mitglieder und hilf dabei,
 [NXT] NextGen zu einer starken Community zu machen.
-
 </p>
 
 
 
-
-
-
-</div>
-
-
-
-
-
-<!-- VERIFIZIERUNG -->
 
 
 <div class="warning">
@@ -392,26 +288,16 @@ Unterstütze deine Gildenkollegen und hilf dabei,
 
 ⚠️ WICHTIG
 
-
 <br><br>
-
 
 Nachdem du die Regeln gelesen hast,
 gehe bitte auf unserem Discord in den Kanal:
 
-
 <br><br>
-
-
-<b>
 
 #✅-verifizierung
 
-</b>
-
-
 <br><br>
-
 
 und bestätige dich dort,
 um Zugriff auf alle Bereiche von [NXT] NextGen zu erhalten.
@@ -422,31 +308,27 @@ um Zugriff auf alle Bereiche von [NXT] NextGen zu erhalten.
 
 
 
-
-
-<!-- WEITER BUTTON -->
-
-
 <button onclick="goDiscord()">
 
-
-Weiter
-
+🚀 Weiter zu Discord
 
 </button>
 
 
 
-
-
 </div>
 
 
 </div>
 
-<!-- =====================
+
+
+
+
+
+<!-- =========================
      DISCORD LOADING
-===================== -->
+========================= -->
 
 
 <div id="discordLoading" style="display:none;">
@@ -466,21 +348,16 @@ Verbindung zu Discord wird hergestellt...
 
 
 
-
-<!-- =====================
+<!-- =========================
      DISCORD SEITE
-===================== -->
+========================= -->
 
 
 <div id="discordPage" style="display:none;">
 
 
 
-<img id="discordGif" 
-src="./media/nxt.gif" 
-alt="[NXT] NextGen">
-
-
+<img id="discordGif" src="./media/nxt.gif" alt="[NXT] NextGen">
 
 
 
@@ -489,9 +366,6 @@ alt="[NXT] NextGen">
 🎮 Willkommen bei [NXT] NextGen
 
 </h2>
-
-
-
 
 
 
@@ -507,38 +381,28 @@ Klicke auf den Button und tritt unserer Community bei.
 
 
 
-
-
-
-
 <button onclick="joinDiscord()">
-
 
 🚀 Discord beitreten
 
-
 </button>
-
-
 
 
 
 </div>
 
 
+     
 
 
 
 
-
-
-<!-- =====================
+<!-- =========================
      SCRIPT
-===================== -->
+========================= -->
 
 
 <script src="./script.js"></script>
-
 
 
 
