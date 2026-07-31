@@ -1015,7 +1015,7 @@ function joinDiscord(){
 
     window.location.href =
 
-    "https://discord.com/invite/9k5QrjW3Tn";
+    "https://discord.gg/MqhCcegnJC";
 
 
 }
