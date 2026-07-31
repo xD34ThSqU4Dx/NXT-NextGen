@@ -20,7 +20,11 @@ html,body{
 
     color:white;
 
-    font-family:monospace;
+    font-family:
+"Segoe UI",
+"Noto Sans KR",
+"Malgun Gothic",
+monospace;
 
     overflow:hidden;
 
