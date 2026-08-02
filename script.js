@@ -1012,11 +1012,11 @@ function goDiscord(){
 
 function joinDiscord(){
 
-
-    window.location.href =
-
-    "https://discord.gg/MqhCcegnJC";
-
+    window.open(
+        "https://discord.gg/SFdBgGRGQQ",
+        "_blank",
+        "noopener,noreferrer"
+    );
 
 }
 
